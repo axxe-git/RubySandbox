@@ -1,0 +1,48 @@
+class HeapClass
+  
+  @array=Array.new;
+  @arrayLength=-1;
+  @heapSize=-1;
+  
+  def initialize(inputArray, inputArrayLength, inputHeapSize)
+    @arrayLength=inputArrayLength;
+    @heapSize=inputHeapSize;
+    
+    @array=inputArray;
+    
+    @array[0]=1000;
+    
+  end
+  
+  def MaxHeapify(i)
+    leftChildIndex=@array.at(2*i);
+    rightChildIndex=@array.at((2*i)+1);
+    
+    largest=i;
+    if(leftChildIndex <= @heapSize and @array.at(leftChildIndex) > @array.at(i))
+        largest=leftChildIndex;
+    end
+    
+    if(rightChildIndex <= @heapSize and @array.at(rightChildIndex) > @array.at(largest))
+      largest=rightChildIndex;
+    end
+    
+    if(largest != i)
+      temp=@array.at(i);
+      @array[i]=@array[largest];
+      @array[largest]=temp;     
+      
+      MaxHeapify(largest);
+    end 
+  end
+  
+  
+  def displayArray()
+    puts @array;
+  end
+end
+
+heapObject=HeapClass.new([10,30,10,50,6,9,1,20],8,8);
+#heapObject.MaxHeapify(0);
+
+heapObject.displayArray();

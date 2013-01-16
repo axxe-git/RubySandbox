@@ -1,0 +1,18 @@
+class HeapClass
+  
+  @array=Array.new;
+  @arrayLength=-1;
+  @heapSize=-1;
+  
+  def initialize(inputArray, inputArrayLength, inputHeapSize)
+    @arrayLength=inputArrayLength;
+    @heapSize=inputHeapSize;
+    
+    @array=inputArray;
+    
+  end
+  
+  def displayArray()
+    puts @array;
+  end
+end
