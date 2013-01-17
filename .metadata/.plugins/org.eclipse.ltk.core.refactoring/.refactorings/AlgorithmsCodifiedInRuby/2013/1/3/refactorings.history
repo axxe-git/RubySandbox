@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename source module &apos;SortingAlgorithms.QuickSort.rb&apos; to &apos;Sort.rb&apos;&#x0D;&#x0A;- Original element: &apos;SortingAlgorithms::QuickSort.rb&apos;&#x0D;&#x0A;- Renamed element: &apos;SortingAlgorithms::Sort.rb&apos;" description="Rename source module &apos;QuickSort.rb&apos;" flags="589830" id="org.eclipse.dltk.ui.rename.sourcemodule" input="/&lt;SortingAlgorithms{QuickSort.rb" name="Sort.rb" stamp="1358377483696" version="1.0"/>
+</session>
