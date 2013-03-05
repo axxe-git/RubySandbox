@@ -1,0 +1,40 @@
+class OpenAddressingHashing
+  @hastTable=Array.new();
+  @slots=-1;
+  
+  def initialize(m)
+    @hashTable=Array.new(m, "NULL");
+    @slots=m;
+  end
+  
+  def HashInsert(key, value)
+    for i in 0..@slots-1
+      hashIndex=key.modulo(@slots) + (i * (1+(key.modulo(@slots-1))));
+      
+      if (@hashTable[hashIndex]!="NULL")
+        @hashTable[hashIndex]=value;
+        break;
+      end
+        
+      if i==@slots-1
+        puts "Hash Table Overflow";
+      end
+    end
+  end
+  
+  def HashSearch(key)
+    
+  end
+  
+  def HashDisplay()
+    puts @hashTable;
+  end
+end
+
+hashTable = OpenAddressingHashing.new(10);
+random=Random.new(12345);
+for i in 1..12
+  key=random.rand(100);
+  hashTable.HashInsert(key,"#{key} -> Value #{i}");
+end
+hashTable.HashDisplay();

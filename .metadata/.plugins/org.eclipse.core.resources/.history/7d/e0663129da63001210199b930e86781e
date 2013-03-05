@@ -1,0 +1,61 @@
+class BinaryTree
+  class Node
+    @value=-1;
+    @parentNode=Node.new;
+    @leftChild=Node.new;
+    @rightChild=Node.new;
+    
+    def initialize(val,parent,lChild,rChild)
+      @value=val;
+      @parentNode=parent;
+      @leftChild=lChild;
+      @rightChild=rChild;
+    end
+    
+    def DisplayNode()
+      puts "Node <@value, @parentNode, @leftChild, @rightChild>";
+    end
+  end
+  
+  #@tree=Array.new();
+  @numberOfNodes=0;
+  #@currentPointer=Node.new();
+  @root="";
+  
+  def AddNode(val, currentNode=@root, depth=Math.log2(@numberOfNodes).floor, branch="LEFT")
+    if (currentNode=="")
+      @root=Node.new(val,"","","");
+      puts "inserted at root : #{val}";
+      return true;
+    elsif depth==0
+      if currentNode.leftChild==""
+        currentNode.leftChild==Node.new(val,"","","");
+        puts "inserted as left child of <#{currentNode.value} : #{val}";
+        return true;
+      elsif currentNode.rightChild==""
+        currentNode.rightChild==Node.new(val,"","","");
+        puts "inserted as left child of <#{currentNode.value} : #{val}";
+        return true;
+      end
+    elsif depth>0
+      #if branch=="LEFT"
+      if AddNode(val,currentNode.leftChild, depth-1, "LEFT")
+        return true;
+      #elsif branch=="RIGHT"
+      elsif AddNode(val,currentNode.rightChild, depth-1, "LEFT")
+        return true;
+      else
+        return false;
+      end
+    end
+  end      
+  
+  def DisplayTree()
+    
+  end
+end
+
+
+treeObject= BinaryTree.new();
+treeObject.AddNode(10);
+treeObject.AddNode(50);

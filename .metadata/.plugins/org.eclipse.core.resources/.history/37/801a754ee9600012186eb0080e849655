@@ -1,0 +1,27 @@
+class OpenAddressingHashing
+  @hastTable=Array.new();
+  
+  def initialize(m)
+    @hashTable=Array.new(m) {"NULL"};
+    
+    
+    
+  end
+  def HashInsert(key, value)
+    for i in 0..m-1
+      hashIndex=key.modulo(m) + (i * (1+(key.modulo(m-1))));
+      
+      if (@hashTable[hashIndex]!="NULL")
+        @hashTable[hashIndex]=value;
+        break;
+      end
+        
+      if i==m-1
+        puts "Hash Table Overflow";
+      end
+    end
+  end
+  
+  def HashSearch(key)
+  end
+end
